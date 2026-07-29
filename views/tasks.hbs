@@ -1,0 +1,37 @@
+<h2>My Tasks</h2>
+
+<p><a href="/dashboard">Dashboard</a> | <a href="/tasks/add">Add Task</a> | <a href="/logout">Logout</a></p>
+
+{{#if error}}
+<p style="color:red;">{{error}}</p>
+{{/if}}
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {{#each tasks}}
+    <tr>
+        <td>{{title}}</td>
+        <td>{{description}}</td>
+        <td>{{dueDate}}</td>
+        <td>{{status}}</td>
+        <td>
+            <a href="/tasks/edit/{{id}}">Edit</a>
+
+            <form method="POST" action="/tasks/delete/{{id}}" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+
+            <form method="POST" action="/tasks/status/{{id}}" style="display:inline;">
+                <button type="submit">Toggle Status</button>
+            </form>
+        </td>
+    </tr>
+    {{/each}}
+</table>

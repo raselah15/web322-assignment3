@@ -1,0 +1,24 @@
+<h2>Add New Task</h2>
+
+{{#if error}}
+<p style="color:red;">{{error}}</p>
+{{/if}}
+
+<form method="POST" action="/tasks/add">
+
+    <label for="title">Title</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="description">Description</label><br>
+    <textarea id="description" name="description" rows="4" cols="40"></textarea><br><br>
+
+    <label for="dueDate">Due Date</label><br>
+    <input type="date" id="dueDate" name="dueDate"><br><br>
+
+    <button type="submit">Add Task</button>
+
+</form>
+
+<br>
+
+<a href="/tasks">Back to Tasks</a>
