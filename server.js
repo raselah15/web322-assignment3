@@ -7,7 +7,7 @@ WEB322-Assignment 03
 *
 * Name: Rasel Ahmmed
 * Student ID: 182801233
-* Date: July 27, 2026
+* Date: July 29, 2026
 */
 
 const express = require('express');
@@ -39,8 +39,7 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     createdAt: { type: Date, default: Date.now }
 });
-
-const User = mongoose.model('User', userSchema);
+const User = mongoose.models.User || mongoose.model("User", userSchema);
 
 // 2. PostgreSQL (Sequelize) for Tasks
 const sequelize = new Sequelize(process.env.POSTGRES_URL, {
