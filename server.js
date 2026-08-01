@@ -308,3 +308,6 @@ sequelize.sync()
     .catch((err) => {
         console.error('Failed to sync PostgreSQL database:', err);
     });
+
+initializeApp();
+module.exports = app;
